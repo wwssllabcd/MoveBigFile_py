@@ -14,6 +14,8 @@ def move_big_files(fpath):
                 shutil.move(fp, fpath)
                 print ("move " + fp)
 
-FOLDER_PATH = './'.encode('utf-8')
+
+
+FOLDER_PATH = './'
 move_big_files(FOLDER_PATH)
 print ("Finish")
