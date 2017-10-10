@@ -3,12 +3,17 @@
 
 import os
 import shutil
+import sys
 
 def move_big_files(src, dst):
     fsizeMb = os.path.getsize(src)/1024/1024
-    if fsizeMb > 100:
+    if fsizeMb > 10:
         print(src.encode("utf-8"))
-        shutil.move(src,  dst)
+        try:
+            shutil.move(src,  dst)
+        except:
+            msg = sys.exc_info()
+            print("!! Unexpected error:",msg[0], msg[1])
         print ("move " + src)
 
 def get_file_in_fir(fpath, execFun):
