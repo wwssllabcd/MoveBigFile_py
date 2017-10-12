@@ -7,7 +7,7 @@ import sys
 
 def move_big_files(src, dst):
     fsizeMb = os.path.getsize(src)/1024/1024
-    if fsizeMb > 10:
+    if fsizeMb > 100:
         print(src.encode("utf-8"))
         try:
             shutil.move(src,  dst)
