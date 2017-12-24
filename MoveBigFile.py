@@ -7,7 +7,7 @@ import sys
 
 def move_big_files(src, dst):
     fsizeMb = os.path.getsize(src)/1024/1024
-    if fsizeMb > 100:
+    if fsizeMb > 120:
         print(src.encode("utf-8"))
         try:
             shutil.move(src,  dst)
@@ -21,13 +21,9 @@ def get_file_in_fir(fpath, execFun):
         if root == fpath:
             continue
         for f in files:
-           
             fp = os.path.join(root, f)
             execFun(fp, fpath)
             
-
-
-
 FOLDER_PATH = './'
 get_file_in_fir(FOLDER_PATH, move_big_files)
 print("Finish")
