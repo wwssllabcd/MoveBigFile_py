@@ -5,6 +5,7 @@ import os
 import shutil
 import sys
 
+sys.path.append("../EricCorePy")
 
 def move_big_files(src, dst):
     fsizeMb = os.path.getsize(src) / 1024 / 1024
@@ -18,7 +19,7 @@ def move_big_files(src, dst):
         print("move " + src)
 
 
-def get_file_in_fir(fpath, execFun):
+def get_file_in_dir(fpath, execFun):
     for root, dirs, files in os.walk(fpath):
         if root == fpath:
             continue
@@ -28,6 +29,6 @@ def get_file_in_fir(fpath, execFun):
 
 
 FOLDER_PATH = './'
-get_file_in_fir(FOLDER_PATH, move_big_files)
+get_file_in_dir(FOLDER_PATH, move_big_files)
 print("Finish")
 os.system("pause")
